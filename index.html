@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Telispe 3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<!--<link rel="stylesheet" type="text/css" href="./assets/skin/dhtmlx.css"/>-->
+<link rel="stylesheet" type="text/css" href="./assets/skin3/dhtmlx.css"/>
+
+
+<script src="./assets/js/jquery-3.3.1.min.js"></script>
+
+<style>
+html, body {
+    margin:0px;
+    padding: 0px;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background-color:#f0f0f0;
+}
+
+.dhxwins_vp_dhx_skyblue div.dhxwin_inactive div.dhxwin_fr_cover {
+    opacity: 0;
+}
+
+.dhxlist_obj_dhx_skyblue .validate_error .dhxlist_txt_textarea {
+	background-color: #E0E0E0;
+}
+.dhtmlx_validation_error{
+    background-color: #E0E0E0;
+}
+
+.bgrey {
+	background-color: #dddddd !important;
+}
+
+.inputRO {
+	background-color: red !important;
+}
+
+</style>
+
+<script src="./assets/DHTMLX46/codebase/dhtmlx.js"></script>
+<script src="./assets/js/fdlnew.js"></script>
+
+
+<script>
+var dhxWins;
+var wsURL = "./assets/php/ws/wsT3.php";                                                
+var userId = 0;
+var userName = "";                                               
+var wavDir = "";
+var mp3Dir = "";                                                
+var durations = new Array();                                                
+var winpos = "";
+var mEna = "";
+
+function doOnLoad() {
+
+	var urlPars = getUrlPars();
+	var debug = ('debug' in urlPars);
+	
+    /////////////////////////////////////////////////////////////////
+    //// MAIN LAYOUT CONTAINER FOR ALL
+    /////////////////////////////////////////////////////////////////
+
+    layMain = new dhtmlXLayoutObject(document.body,"1C");
+    layMain.cells("a").hideHeader();
+    layMain.cells("a").attachObject("winVP");
+    
+    // windows in layout
+    dhxWins = new dhtmlXWindows();
+    dhxWins.attachViewportTo("winVP");
+
+    /// Main Menu
+    if (debug!='') 	doRest();
+    else 			doLogin();
+    
+    function doLogin() {
+        loginWin = dhxWins.createWindow("w1", 10, 10, 300, 170);
+        loginWin.denyResize();
+        loginWin.setText("Login");
+        loginWin.button("park").hide();
+        loginWin.button("minmax").hide();
+        loginWin.button("close").hide();
+        loginWin.centerOnScreen();
+
+        
+        
+        formData = [
+            {type: "settings", position: "label-left", labelWidth: 100, inputWidth: 120}
+        ,   {type: "block", inputWidth: "auto", offsetTop: 12, list: [
+            ,   {type: "input", label: "Login", name: "skuid"}
+            ,   {type: "password", label: "Password", name: "skpwd"}
+            ,   {type: "button", value: "Proceed", name: "login", offsetLeft: 70, offsetTop: 14}
+            ]}
+        ];
+        loginForm = loginWin.attachForm(formData);
+        
+        loginForm.attachEvent("onButtonClick", function(name) {
+            doCheck();
+        });
+
+        loginForm.attachEvent("onKeyUp",function(inp, ev, name, value){
+            if (ev.code=="Enter") doCheck();
+        });
+        
+        function doCheck() {
+
+            var req = {
+                action: "LOGIN"
+            ,   uid: loginForm.getItemValue("skuid")
+            ,   pwd: loginForm.getItemValue("skpwd") 
+            } ;
+
+
+            var ret = AGP(wsURL, req, "GET");
+            if (ret.status == 0) {
+                userId 		= ret.userId;
+                userName 	= ret.fname + " " + ret.lname;
+                // dhtmlx.alert("Welcome " + ret.details.welcome);
+                wavDir 		= ret.wavDir;
+                mp3Dir 		= ret.mp3Dir;
+				//alert("wav:" + wavDir + "\nmp3:" + mp3Dir);
+                winpos		= ret.winpos;
+                loginWin.close();
+
+                mEna 		= ret.mEna;
+                //[{text:"10 min",value:10},{text:"Illimitata",value:9999}]
+                durArr		= ret.durations.split(",");
+                for (i=0;i<durArr.length;i++) {
+					durations[i] = {text: durArr[i] + " minuti", value:parseInt(durArr[i])};
+                }
+				durations[i] = {text: "Illimitata", value:86400};
+                
+                doRest();
+            } else {
+                dhtmlx.alert(ret.errMsg);
+            }
+
+        }
+    }
+    
+    function doRest() {
+        
+        var menu = layMain.attachMenu();
+        
+        // shkmgr:MED,AT,CORP,SOL
+        
+        idx = 10;
+        lastBro = null;
+
+        
+        /**
+        thisBro = "fUsr";
+        idx += 10;
+        menu.addNewSibling(lastBro,      thisBro,      "Utenti",         false);
+            menu.addNewChild(thisBro,     idx+1,     "usr",          "Gestione Utenti",       false);
+        lastBro = thisBro;
+        **/
+        
+        thisBro = "fcfg";
+        if (mEna.indexOf(thisBro)!=-1) {
+	        idx += 10;
+	        menu.addNewSibling(lastBro,      thisBro,      "Configurazione Sistema",         false);
+	            menu.addNewChild(thisBro,     idx+1,     "ctypeEdit",        "Tipi Crimini",       	false);
+	            menu.addNewChild(thisBro,	  idx+1,	 "sectEdit",		 "Sezioni",				false);
+	            menu.addNewChild(thisBro,	  idx+1,	 "extEdit",			 "Interni",				false);
+	            menu.addNewChild(thisBro,	  idx+1,	 "trunkEdit",		 "Linee",				false);
+	            menu.addNewChild(thisBro,	  idx+1,	 "istEdit",		 	 "Istituti",			false);
+	            menu.addNewChild(thisBro,	  idx+1,	 "usrEdit",		 	 "Utenti",				false);
+	            menu.addNewChild(thisBro,	  idx+1,	 "cstEdit",		 	 "Parametri Sistema",	false);
+	        lastBro = thisBro;
+		}
+
+        thisBro = "fApp";
+        if (mEna.indexOf(thisBro)!=-1) {
+	        idx += 10;
+	        menu.addNewSibling(lastBro,      thisBro,      "Prefissi/Zone",         false);
+	            menu.addNewChild(thisBro,     idx+1,     "pfxEdit",          "Prefissi",       		false);
+	            menu.addNewChild(thisBro,     idx+1,     "tznEdit",          "Zone Tariffarie", 	false);
+	        lastBro = thisBro;
+		}
+        
+        
+        thisBro = "fCrd";
+        if (mEna.indexOf(thisBro)!=-1) {
+	        idx += 10;
+	        menu.addNewSibling(lastBro,      thisBro,      "Detenuti",         false);
+	            
+                menu.addNewChild(thisBro,     idx+1,     "dettEdit",        "Anagrafica Detenuti",           false);
+                menu.addNewChild(thisBro,     idx+1,     "cardEdit",        "Anagrafica Tessere",           false);
+	        lastBro = thisBro;
+		}
+
+        thisBro = "fAcc";
+        if (mEna.indexOf(thisBro)!=-1) {
+	        idx += 10;
+	        menu.addNewSibling(lastBro,      thisBro,      "Conti",         false);
+                menu.addNewChild(thisBro,     idx+1,     "dettAcc",        "Conto Economico",                   false);
+	        lastBro = thisBro;
+		}
+
+		
+		
+      	/*
+        thisBro = "fDett";
+        if (mEna.indexOf(thisBro)!=-1) {
+	        idx += 10;
+	        menu.addNewSibling(lastBro,      thisBro,      "Detenuti",         false);
+	            menu.addNewChild(thisBro,     idx+1,     "dettEdit",        "Anagrafica",       	false);
+	        lastBro = thisBro;
+		}
+
+        thisBro = "fAcc";
+        if (mEna.indexOf(thisBro)!=-1) {
+	        idx += 10;
+	        menu.addNewSibling(lastBro,      thisBro,      "Conti",         false);
+	            menu.addNewChild(thisBro,     idx+1,     "dettAcc",        "Conto Economico",       			false);
+	        lastBro = thisBro;
+		}
+        */
+
+        thisBro = "fCallmom";
+        if (mEna.indexOf(thisBro)!=-1) {
+	        idx += 10;
+	        menu.addNewSibling(lastBro,      thisBro,      "Monitoraggio",         false);
+	            menu.addNewChild(thisBro,     idx+1,     "callMon",        "Call Monitor",       	false);
+	        lastBro = thisBro;
+		}
+
+		
+        thisBro = "fStats";
+        if (mEna.indexOf(thisBro)!=-1) {
+	        menu.addNewSibling(lastBro,        thisBro,     "Statistiche",             false);
+	            menu.addNewChild(thisBro,     idx+1,     "lastCall2",          "Ultime chiamate Detenuto", 			false);
+	        lastBro = thisBro;
+		}
+		        
+		
+        thisBro = "fUtil";	
+        if (mEna.indexOf(thisBro)!=-1) {
+	        menu.addNewSibling(lastBro,        thisBro,     "Utilita'",             false);
+	            menu.addNewChild(thisBro,     idx+2,     "dashboard",          "Panoramica", 			false);
+	            menu.addNewChild(thisBro,     idx+2,     "pfxTest",          "Cerca Zona per Numero Telefono", 			false);
+	            menu.addNewChild(thisBro,     idx+3,     "callAna",          "Analisi Chiamate", 			false);
+	        lastBro = thisBro;
+		}
+		        
+        thisBro = "fLogout";
+        menu.addNewSibling(lastBro,        thisBro,     "Esci",             false);
+            menu.addNewChild(thisBro,    idx+1,     "logout",           "Effettua Logout",           false);
+        lastBro = thisBro;
+
+
+ 		if (winpos!="") {
+			var wp = JSON.parse(winpos);
+			wp.forEach(function(w) {
+				switch(w.id) {
+					case "dettWin" 		:	dettEdit(w);		break;
+					case "callMonWin"	:	callMon(w);			break;			
+					case "tznWin"		:	tznEdit(w);			break;			
+					case "pfxWin"		:	pfxEdit(w);			break;			
+					case "cardWin"		:	cardEdit(w);		break;
+					case "dettAccWin"	:	dettAcc(w);			break;
+					case "trunkWin"		:	trunkEdit(w);		break;
+					case "extWin"		:	extEdit(w);			break;
+					case "sectWin"		:	sectEdit(w);		break;
+					case "ctypeWin"		:	ctypeEdit(w);		break;
+					case "usrWin"		:	usrEdit(w);			break;
+					case "cstEdit"		:	cstEdit(w);			break;
+				}
+			});
+ 		}
+    
+            
+        menu.attachEvent("onClick", function(id) {
+            switch (id) {
+                case "logout" 		:	
+	                dhtmlx.confirm({
+	                    title:"Logout Sistema"
+	                ,    ok:"Si", cancel:"No"
+	                ,    text:"Sicuro di voler effettuare il logout dal sistema?"
+	                ,    callback:function(result){
+                    		if (result) {
+								var winpos = new Array();
+								dhxWins.forEachWindow(function(w){
+									winpos[winpos.length] =  {
+										id:w.getId()
+									,	l:w.getPosition()[0]
+									,	t:w.getPosition()[1]
+									,	w:w.getDimension()[0]
+									,	h:w.getDimension()[1]
+									}
+								});
+								// alert (JSON.stringify(winpos));
+								var ret = AGP(wsURL, {action:"SAVE_WIN_POS", userId:userId, data:JSON.stringify(winpos)});
+								if (ret.status!=0)
+									dhtmlx.alert(ret.errMsg);
+								else
+									document.location.href = document.location.href;	
+							}
+	                    }
+	                });				
+                break;
+                
+                case "ctypeEdit"	:   ctypeEdit();	break;
+                case "pfxEdit"		:   pfxEdit();		break;
+                case "sectEdit"		:	sectEdit();		break;
+                case "extEdit"		:	extEdit();		break;
+                case "tznEdit"		:	tznEdit();		break;
+                case "pfxTest" 		:	pfxTest();		break;
+				case "usrEdit"		:	usrEdit();		break;
+				case "cstEdit"		:	cstEdit();		break;
+                case "cardEdit"		:	cardEdit();		break;
+				case "istEdit"		:	istEdit();		break;
+			
+			    case "dettEdit"		:	dettEdit();		break;
+			
+				case "callMon"		:	callMon();		break;
+				case "dettAcc"		:	dettAcc();		break;
+			
+				case "trunkEdit"	:	trunkEdit();	break;
+			
+				case "lastCall"		:	lastCall();		break;
+				case "lastCall2"	:	lastCall2();	break;
+				case "callAna"		:	callAna();		break;
+				
+				case "dashboard"	:	dashboard();	break;
+			}                                                                                                   
+        });
+
+    }
+
+    if (debug != '') {    
+    	lastCall2();
+    }
+}    
+
+
+</script>
+<script src="./js/ctypeEdit.js"></script>
+<script src="./js/pfxEdit.js"></script>
+<script src="./js/tznEdit.js"></script>
+<script src="./js/pfxTest.js"></script>
+<script src="./js/cardEdit.js"></script>
+<script src="./js/dettEdit.js"></script>
+<script src="./js/callMon.js"></script>
+<script src="./js/dettAcc.js"></script>
+<script src="./js/extEdit.js"></script>
+<script src="./js/sectEdit.js"></script>
+<script src="./js/trunkEdit.js"></script>
+<script src="./js/usrEdit.js"></script>
+<script src="./js/cstEdit.js"></script>
+<script src="./js/istEdit.js"></script>
+
+<script src="./js/lastCall.js"></script>
+<script src="./js/lastCall2.js"></script>
+<script src="./js/callAna.js"></script>
+<script src="./js/popCall.js"></script>
+<script src="./js/dashboard.js"></script>
+
+</head>
+<body onload="doOnLoad();">
+<div id="winVP" style="width:100%; height:100%; " >
+<!--
+<img style="min-height: 100%; max-width: 100%; max-height: 100%; opacity: 0.10" src="./assets/img/logo_tvision.jpg" />
+-->
+<img style="width:80px; opacity: 0.60" src="./assets/img/TelispeBg.png" />
+
+</div>
+</body>
+</html>

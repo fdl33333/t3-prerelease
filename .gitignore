@@ -1,0 +1,12 @@
+_old/
+_tests/
+cronlogs/
+esl/
+pics/
+play/
+rec/
+recorder/
+calllog.txt
+log*.txt
+nohup.out
+

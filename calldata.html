@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Telispe 3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<link rel="stylesheet" type="text/css" href="./assets/skin/dhtmlx.css"/>
+
+
+<script src="./assets/js/jquery-3.3.1.min.js"></script>
+<script src="./assets/js/fdlnew.js"></script>
+
+<style>
+html, body {
+    margin:0px;
+    padding: 0px;
+    width:100%;
+    height:100%;
+    background-color:#eef5f6;
+}
+
+table {
+	font-family:Tahoma;
+	font-size:10pt;
+}
+td {
+	min-width:150px;
+	height:14px;
+}
+
+.cKey {color:#94a55b;}
+
+audio {width:400px;}
+
+.ar {text-align:right}
+</style>
+<script>
+var wsURL = "./assets/php/ws/wsT3.php";
+var mp3Dir = "";
+var wavDir = "";
+$( document ).ready(function() {
+	var urlPars = getUrlPars();
+	var found = ('callId' in urlPars);
+	if (!found) {
+		alert("No call Id");
+		return;
+	}
+	callId = urlPars.callId;
+	if (callId=="") {
+		alert("No call Id");
+		return;
+	}
+
+	$.getJSON( wsURL, {action: "GET_CALL_DATA", callId: callId}).done(
+            	function (ret) { 
+                	if (ret.status!=0) {
+						alert(ret.errMsg);
+						return;
+                	}
+                    wavDir 		= ret.wavDir
+                	mp3Dir 		= ret.mp3Dir
+					$.each(ret.data, function(k,v){
+						$("." + k).html(v);
+					});        			
+					if (ret.data.recFile!="") {
+						$("#aud").show();
+						var recFile = "./" + mp3Dir + ret.data.recFile + ".mp3";
+						$("#aud")[0].src=recFile;
+					} else 
+						$("#aud").hide();
+						
+				}
+			);	
+
+});
+
+	
+	
+</script>
+<body>
+	<table>
+		<tr><td class="cKey">Nome</td><td class="name"></td></tr>
+		<tr><td class="cKey">Matricola</td><td class="matr"></td></tr>
+		<tr><td class="cKey">Data Chiamata</td><td class="sessDTTM"></td></tr>
+		<tr><td class="cKey">Interno</td><td class="ext"></td></tr>
+		<tr><td class="cKey">Tessera</td><td class="cardser"></td></tr>
+		<tr><td class="cKey">Numero</td><td class="dialedNum"></td></tr>
+		<tr><td class="cKey">Descrizione</td><td class="wldescr"></td></tr>
+		<tr><td class="cKey">Tipo</td><td class="callTip"></td></tr>
+		<tr><td class="cKey">Recupero</td><td class="recup"></td></tr>
+		<tr><td class="cKey">Destinazione</td><td class="descr"></td></tr>
+		<tr><td class="cKey">Zona</td><td class="tznDescr"></td></tr>
+		<tr><td class="cKey">Linea</td><td class="trunkDescr"></td></tr>
+		<tr><td class="cKey">Tipo Linea</td><td class="trunkType"></td></tr>
+		<tr><td class="cKey">Secondi Totali</td><td class="totSecs"></td></tr>
+		<tr><td class="cKey">Secondi Grazia</td><td class="secsGrace"></td></tr>
+		<tr><td class="cKey">Secondi Parlato</td><td class="talkSecs"></td></tr>
+		<tr><td class="cKey">Costo Minimo</td><td class="minCharge"></td></tr>
+		<tr><td class="cKey">Costo Totale</td><td class="totCharge"></td></tr>
+		<tr><td class="cKey">Stato</td><td class="statDescr"></td></tr>
+	</table>	
+    <audio id="aud" controls></audio>
+	</body>
+</html>

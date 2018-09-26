@@ -1,0 +1,413 @@
+/*
+Product Name: dhtmlxVault 
+Version: 2.4.1 
+Edition: Standard 
+License: content of this file is covered by GPL. Usage outside GPL terms is prohibited. To obtain Commercial or Enterprise license contact sales@dhtmlx.com
+Copyright UAB Dinamenta http://www.dhtmlx.com
+*/
+
+.dhx_vault_bootstrap {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid #cbc4bb;
+	border-radius: 2px;
+	background-color: #e0dad2;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	font-size: 13px;
+	height: 41px;
+	font-family: Helvetica, Verdana;
+	color: white;
+	overflow: hidden;
+	z-index: 1;
+	-moz-user-select: none;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_browse,
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_upload,
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_cancel,
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_clear {
+	position: relative;
+	float: left;
+	display: inline;
+	margin: 8px 1px 0px 6px;
+	padding: 0px 4px;
+	height: 26px;
+	line-height: 26px;
+	border: 0px solid white;
+	cursor: pointer !important;
+	overflow: hidden;
+	-moz-user-select: none;
+	border-radius: 4px;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_browse {
+	background-color: #5fc05f;
+	background: linear-gradient(#5fc05f,#53a44f);
+	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#5fc05f,endColorStr=#53a44f);
+	border: 1px solid #4c9649;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_browse.dhx_vault_button_browse_hover {
+	background-color: #52b652;
+	background: linear-gradient(#52b652,#489846);
+	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#5fc05f,endColorStr=#53a44f);
+	border: 1px solid #4c9649;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_browse.dhx_vault_button_browse_pressed {
+	background-color: #489845;
+	border: 1px solid #4c9649;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.25) inset;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_upload {
+	background-color: #4d97cb;
+	background: linear-gradient(#4d97cb,#4882b2);
+	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#5fc05f,endColorStr=#53a44f);
+	border: 1px solid #3d7aa3;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_upload.dhx_vault_button_upload_hover {
+	background-color: #4288c3;
+	background: linear-gradient(#4288c3,#3d6fa7);
+	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#4288c3,endColorStr=#3d6fa7);
+	border: 1px solid #3d7aa3;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_upload.dhx_vault_button_upload_pressed {
+	background-color: #3d6fa7;
+	border: 1px solid #3d7aa3;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.25) inset;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_cancel {
+	background-color: #eb5f61;
+	background: linear-gradient(#eb5f61,#d35859);
+	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#eb5f61,endColorStr=#d35859);
+	border: 1px solid #bd545a;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_cancel.dhx_vault_button_cancel_hover {
+	background-color: #e85153;
+	background: linear-gradient(#e85153,#cc4b4c);
+	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#e85153,endColorStr=#cc4b4c);
+	border: 1px solid #bd545a;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_cancel.dhx_vault_button_cancel_pressed {
+	background-color: #cc4b4c;
+	border: 1px solid #bd545a;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.25) inset;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_clear {
+	background-color: #f9b147;
+	background: linear-gradient(#f9b147,#f69706);
+	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#f9b147,endColorStr=#f69706);
+	border: 1px solid #d48d2c;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_clear.dhx_vault_button_clear_hover {
+	background-color: #f8a53c;
+	background: linear-gradient(#f8a53c,#f58805);
+	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#f8a53c,endColorStr=#f58805);
+	border: 1px solid #d48d2c;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_button_clear.dhx_vault_button_clear_pressed {
+	background-color: #f58805;
+	border: 1px solid #d48d2c;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.25) inset;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhxvault_button_icon {
+	position: relative;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin: 4px 2px 0px 2px;
+	background-image: url(../imgs/dhxvault_bootstrap/dhxvault_buttons.gif);
+	background-repeat: no-repeat;
+	cursor: pointer !important;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhxvault_button_icon.dhx_vault_icon_browse {
+	background-position: 0px -728px;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhxvault_button_icon.dhx_vault_icon_upload {
+	background-position: 0px -744px;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhxvault_button_icon.dhx_vault_icon_cancel {
+	background-position: 0px -760px;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhxvault_button_icon.dhx_vault_icon_clear {
+	background-position: 0px -776px;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhxvault_button_text {
+	float: left;
+	height: 18px;
+	line-height: 17px;
+	margin: 4px 4px 3px 4px;
+	cursor: pointer !important;
+	white-space: nowrap;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls .dhx_vault_input {
+	position: absolute;
+	left: -1000px;
+	top: 0px;
+	visibility: hidden;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_file_form_cont {
+	position: absolute;
+	width: 100%;
+	height: 28px;
+	right: 0px;
+	top: 0px;
+	cursor: pointer;
+	overflow: hidden;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_file_form_cont form.dhx_vault_file_form {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	cursor: pointer;
+}
+.dhx_vault_bootstrap div.dhx_vault_controls div.dhx_vault_file_form_cont form.dhx_vault_file_form .dhx_vault_file_input {
+	opacity: 0;
+	filter: alpha(opacity=0);
+	cursor: pointer;
+	outline: none;
+	height: 28px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files,
+.dhx_vault_bootstrap div.dhx_vault_f_pr {
+	position: absolute;
+	overflow: auto;
+	background-color: white;
+	border: 1px solid #cbc4bb;
+	font-size: 14px;
+	font-family: Helvetica, Verdana;
+	color: black;
+	z-index: 0;
+}
+.dhx_vault_bootstrap div.dhx_vault_f_pr {
+	background-image: url("../imgs/dhxvault_bootstrap/dhxvault_progress.gif");
+	background-position: center center;
+	background-repeat: no-repeat;
+	opacity: 0.5;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file {
+	position: relative;
+	width: auto;
+	height: 53px;
+	overflow: hidden;
+	border-bottom: 1px solid #e9e5e0;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file.dhx_vault_file_added,
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file.dhx_vault_file_uploading {
+	color: #666666;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file.dhx_vault_file_uploaded {
+	color: #3c3c3c;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file.dhx_vault_file_fail {
+	color: #e3333b;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file.dhx_vault_file_size_exceeded div.dhx_vault_file_param.dhx_vault_file_progress {
+	color: #e3333b;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_param {
+	position: relative;
+	margin: 3px 45px 0 50px;
+	font-family: Helvetica, Verdana;
+	font-size: 14px;
+	color: inherit;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_param.dhx_vault_file_name {
+	margin-top: 10px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_param.dhx_vault_file_name div.dhx_vault_file_name_text {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_param.dhx_vault_file_name div.dhx_vault_file_name_text a {
+	font-family: Helvetica, Verdana;
+	font-size: 14px;
+	color: #3c3c3c;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_param.dhx_vault_file_name div.dhx_vault_file_name_text a:hover {
+	color: #6f6f6f;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_param.dhx_vault_file_delete {
+	position: absolute;
+	top: 20px;
+	right: 15px;
+	width: 16px;
+	height: 16px;
+	margin: 0px;
+	background-image: url(../imgs/dhxvault_bootstrap/dhxvault_buttons.gif);
+	background-position: 0px -792px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	-moz-user-select: none;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon {
+	position: absolute;
+	left: 10px;
+	top: 11px;
+	width: 32px;
+	height: 32px;
+	cursor: default;
+	overflow: hidden;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon div.dhx_vault_all_icons {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 416px;
+	height: 32px;
+	background-repeat: no-repeat;
+	background-image: url(../imgs/dhxvault_bootstrap/dhxvault_icons.gif);
+	cursor: default;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_def div.dhx_vault_all_icons {
+	left: 0px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_arch div.dhx_vault_all_icons {
+	left: -32px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_audio div.dhx_vault_all_icons {
+	left: -64px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_dmg div.dhx_vault_all_icons {
+	left: -96px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_doc div.dhx_vault_all_icons {
+	left: -128px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_exe div.dhx_vault_all_icons {
+	left: -160px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_html div.dhx_vault_all_icons {
+	left: -192px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_image div.dhx_vault_all_icons {
+	left: -224px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_pdf div.dhx_vault_all_icons {
+	left: -256px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_psd div.dhx_vault_all_icons {
+	left: -288px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_text div.dhx_vault_all_icons {
+	left: -320px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_video div.dhx_vault_all_icons {
+	left: -352px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_icon.dhx_vault_icon_xls div.dhx_vault_all_icons {
+	left: -384px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_param div.dhx_vault_progress {
+	position: relative;
+	width: 130px;
+	background-color: #e9e5e0;
+	margin-top: 8px;
+	margin-bottom: 5px;
+	font-size: 7px;
+	overflow: hidden;
+	cursor: default;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_param div.dhx_vault_progress div.dhx_vault_progress_bg {
+	height: 3px;
+	background-color: #0073cc;
+	font-size: inherit;
+	overflow: hidden;
+	cursor: default;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_param span.progress_eta {
+	position: absolute;
+	top: 2px;
+	left: 138px;
+	font-size: 11px;
+}
+.dhx_vault_bootstrap div.dhx_vault_files div.dhx_vault_file_param.dhx_vault_file_uploading div.dhx_vault_progress div.dhx_vault_progress_loader {
+	height: 6px;
+	border: 1px solid #0073cc;
+	background-color: white;
+	background-image: url(../imgs/dhxvault_bootstrap/dhxvault_loader.gif);
+	background-repeat: repeat-x;
+	background-position: left center;
+	overflow: hidden;
+	cursor: default;
+}
+.dhx_vault_bootstrap div.dhx_vault_flash_obj {
+	position: absolute;
+	display: inline;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+.dhx_vault_bootstrap div.dhx_vault_dnd_box {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100px;
+	height: 100px;
+	border: 2px dashed #c0c0c0;
+	background-color: white;
+	opacity: 0.75;
+	overflow: hidden;
+	z-index: 1;
+}
+.dhx_vault_bootstrap div.dhx_vault_dnd_box_text {
+	font-size: 16px;
+	text-align: center;
+}
+.dhx_vault_bootstrap div.dhx_vault_files.dhx_vault_dnd_box_over {
+	overflow: hidden;
+}
+.dhx_vault_bootstrap.dhx_vault_dis {
+	background-color: #e8e8e8;
+	border-color: #dbdbdb;
+}
+.dhx_vault_bootstrap.dhx_vault_dis div.dhx_vault_files {
+	border-color: #dbdbdb;
+}
+.dhx_vault_bootstrap.dhx_vault_dis div.dhx_vault_controls div.dhx_vault_button_browse,
+.dhx_vault_bootstrap.dhx_vault_dis div.dhx_vault_controls div.dhx_vault_button_upload,
+.dhx_vault_bootstrap.dhx_vault_dis div.dhx_vault_controls div.dhx_vault_button_cancel,
+.dhx_vault_bootstrap.dhx_vault_dis div.dhx_vault_controls div.dhx_vault_button_clear {
+	cursor: default;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+.dhx_vault_bootstrap.dhx_vault_dis div.dhx_vault_files div.dhx_vault_file {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+.dhx_vault_bootstrap.dhx_vault_dis div.dhx_vault_files div.dhx_vault_file_param.dhx_vault_file_delete {
+	cursor: default;
+}
+.dhx_vault_bootstrap.dhx_vault_dis div.dhx_vault_controls div.dhx_vault_file_form_cont {
+	display: none;
+}
+.dhxvault_dframe {
+	position: absolute;
+	left: -100px;
+	top: 0px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+div.dhxvault_skin_detect {
+	position: absolute;
+	display: block;
+	visibility: hidden;
+	left: -100px;
+	top: 0px;
+	width: 110px;
+	height: 10px;
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	overflow: hidden;
+}

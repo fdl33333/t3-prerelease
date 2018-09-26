@@ -1,0 +1,8 @@
+2018-08-27 14:56:15	192.168.0.101	**uuid missing
+2018-08-27 14:56:15	192.168.0.101	**ERROR:uuid missing
+2018-08-27 15:22:54	::1	**dialedNum missing
+2018-08-27 15:22:54	::1	**ERROR:dialedNum missing
+2018-08-27 15:46:58	192.168.0.101	**no amount specified
+2018-08-27 15:46:58	192.168.0.101	**ERROR:no amount specified
+2018-08-27 15:51:54	::1	**dialedNum missing
+2018-08-27 15:51:54	::1	**ERROR:dialedNum missing

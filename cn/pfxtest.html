@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Telispe 3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<style>
+
+html, body {
+    margin:0px;
+    padding: 0px;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background-color:white;
+    background-color:#dddddd;
+}
+table{
+	font-family:sans-serif;
+	font-size:10pt;
+	background-color:#dddddd;
+	color:#000;
+}
+
+td  {
+	padding:2px;
+	padding-right:10px;
+}
+
+.data {
+	background-color: #eeeeee;
+	width: 60px;
+}
+.wide {
+	width: 200px;
+}
+
+.num {
+	font-family:sans-serif;
+	font-size:12pt;
+	background-color:#ffffff;
+	border:solid 1px green;
+}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+var wsURL = "../assets/php/ws/wsT3.php";  
+
+$( document ).ready(function() {
+	
+	$('#number').keyup(function (el) {
+
+		var data=  $("td.data");
+
+		for (var i=0; i<data.length; i++)
+			data[i].innerText="";
+
+
+		var num = this.value;
+		if (num.length < 4) return;
+
+
+		$.getJSON( wsURL, {action: "GET_DEST", num:num }).done(
+		function (ret) { 
+			if (ret.status!=0) {
+				alert(ret.errMsg);
+				return;
+			}
+			var dbg = "";
+			$.each( ret.data, function( key, value  ) {
+				$("#" + key).text(value);
+			});
+		});
+			
+	});
+});
+
+
+</script>
+
+
+
+<body>
+	<table>
+		<tr>
+			<td>Digita Numero</td>
+			<td colspan="2" ><input type="text" id="number" class="num"></td>
+		</tr>
+		<tr>
+			<td>Prefisso trovato</td>
+			<td id="pfx" class="data"></td>
+			<td id="descr" class="data wide"></td>
+		</tr>
+		<tr>
+			<td>Zona</td>
+			<td id="tznCode"  class="data"></td>
+			<td id="tznDescr" class="data wide"></td>
+		</tr>
+
+		<tr>
+			<td>Tariffa dalle</td>
+			<td id="nrmBeg" class="data"></td>
+			<td id="nrmPPM" class="data"></td>
+		</tr>
+
+		<tr>
+			<td>Tariffa dalle</td>
+			<td id="nrmEnd" class="data"></td>
+			<td id="lowPPM"class="data"></td>
+		</tr>
+
+		<tr>
+			<td>Costo alla risposta</td>
+			<td id="drpCharge" class="data"></td>
+		</tr>
+
+		<tr>
+			<td>Credito Minimo</td>
+			<td id="minCredit" class="data"></td>
+		</tr>
+
+	</table>
+
+
+</body>

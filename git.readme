@@ -1,0 +1,17 @@
+#!/bin/bash
+now=$(date)
+git status
+git add .
+git rm --cached -r nohup.out
+git rm --cached -r cronlogs
+git rm --cached -r _tests
+git rm --cached -r chat
+git rm --cached -r chat2
+git rm --cached -r chat3
+git rm --cached -r esl
+git rm --cached -r pics
+git rm --cached -r play
+git rm --cached -r recorder
+git commit -m "2018-09-20 12:15:00"
+git push -u origin master
+

@@ -1,0 +1,33 @@
+2018-09-21 09:10:10	::1	**dialedNum missing
+2018-09-21 09:10:10	::1	**ERROR:dialedNum missing
+2018-09-21 09:10:49	::1	**dialedNum missing
+2018-09-21 09:10:49	::1	**ERROR:dialedNum missing
+2018-09-21 09:12:18	::1	**dialedNum missing
+2018-09-21 09:12:18	::1	**ERROR:dialedNum missing
+2018-09-21 09:15:14	::1	**ERROR:Tessera non presente in Db
+2018-09-21 09:40:36	192.168.0.101	**no amount specified
+2018-09-21 09:40:36	192.168.0.101	**ERROR:no amount specified
+2018-09-21 09:41:27	192.168.0.101	**No pin supplied!
+2018-09-21 09:41:27	192.168.0.101	**ERROR:No pin supplied!
+2018-09-21 09:41:36	192.168.0.101	**ERROR:Tessera non presente in Db
+2018-09-21 10:01:17	::1	**ERROR:Tessera non presente in Db
+2018-09-21 10:02:26	::1	**ERROR:Tessera non presente in Db
+2018-09-21 10:03:08	::1	**ERROR:Tessera non presente in Db
+2018-09-21 10:04:19	::1	**ERROR:Tessera non presente in Db
+2018-09-21 10:06:07	::1	**ERROR:Tessera non presente in Db
+2018-09-21 10:08:47	::1	**ERROR:Tessera non presente in Db
+2018-09-21 10:14:01	::1	**ERROR:number 0691157710 not in whitelist for dett 1
+2018-09-21 10:14:24	::1	**ERROR:credit less than minCredit
+2018-09-21 10:14:35	::1	**ERROR:Tessera non presente in Db
+2018-09-21 10:25:27	::1	**ERROR:Tessera non presente in Db
+2018-09-21 11:32:43	::1	**ERROR:Tessera non presente in Db
+2018-09-21 12:12:55	::1	**ERROR:Tessera non presente in Db
+2018-09-21 12:13:02	::1	**ERROR:Tessera non presente in Db
+2018-09-21 12:16:27	::1	**ERROR:number 48 not in whitelist for dett 1
+2018-09-21 13:53:41	::1	**ERROR:Tessera non presente in Db
+2018-09-21 13:54:47	::1	**dialedNum missing
+2018-09-21 13:54:47	::1	**ERROR:dialedNum missing
+2018-09-21 13:54:58	::1	**ERROR:Tessera non presente in Db
+2018-09-21 13:55:06	::1	**ERROR:Tessera non presente in Db
+2018-09-21 14:08:52	::1	**ERROR:Tessera non presente in Db
+2018-09-21 14:19:44	::1	**ERROR:Tessera non presente in Db

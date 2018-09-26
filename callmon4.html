@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Telispe 3 Call Monitor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+<script src="./assets/js/jquery-3.3.1.min.js"></script>
+<script src="./assets/js/fdlnew.js"></script>  
+<script src="./assets/js/webphone/webphone_api.js"></script>
+<style>
+
+html, body {
+    margin:0px;
+    padding: 0px;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background-color:white;
+}
+
+#divMsg {
+    width: 300px;
+    height: 150px;
+    background-color: #FFEB3B;
+    display: none;
+    border: solid 5px #fd0202;
+    box-shadow: 5px 5px black;
+    border-radius: 6px;
+	display:none;
+	text-align: center;
+}
+
+#divMsgText{
+	width:100%;
+	height:110px;
+	vertical-align: middle;
+	font-family: sans-serif;
+	font-size:12pt;
+	padding-top:10px;
+}
+
+.top {
+	width:100%;
+	height:24px;
+	background-color:#67dee9;
+}
+
+.title {
+	float:left;
+	width:200px;
+	font-family: sans-serif;
+	font-size:12pt;
+	margin-top:4px;
+	margin-left:6px;
+}
+
+
+
+.clock {
+	float:right;
+	width:150px;
+	font-family: sans-serif;
+	font-size:12pt;
+	text-align:right;
+	margin-top:4px;
+	margin-right:6px;
+}
+
+
+.spyExt {
+    float:right;
+    height:14px;
+	font-family: sans-serif;
+	font-size:12pt;
+	margin-top:4px;
+	margin-right: 20px;
+}
+
+.slider {
+    float:right;
+	margin-right: 20px;
+}
+
+
+
+
+.stat {
+	float:left;
+	width:14px;
+	height:14px;
+	margin-top:5px;
+	margin-left:6px;
+	border-radius: 10px;    
+	background-color:red;
+}
+
+.cont {
+	width: 100%;
+	height:calc(100% - 24px);
+	background-color:#6f6f6f;
+	overflow:auto;
+}
+
+
+.call {
+    width	:	270px;
+    //height	:	110px;
+    height	:	140px;
+    background-color: #ccffcc;
+    box-shadow: 3px 3px #333232;
+    border-radius: 6px;    
+	float: left;
+	margin-left: 6px;
+	margin-top:6px;
+	font-family:sans-serif;
+	font-size: 10pt;
+}
+
+
+
+table {
+	font-family:sans-serif;
+	font-size: 10pt;
+	padding: 0;
+	margin: 0;
+}
+
+table td {
+	border-radius:4px;
+	padding-left:2px;
+	height:14px;
+}
+
+.btend {
+	width:		36px; 
+	height:		16px;	
+    background-color:#f0f0f0;
+    border-radius: 4px;    
+	margin-botton: 0px;
+	text-align:center;
+}
+
+.btend:hover {
+	background-color: red;
+}
+
+.btrec {
+	width:		36px; 
+	height:		36px; 
+	//background-color:red;
+    background-color:#e0e0e0;
+    border-radius: 8px;    
+	margin-botton: 4px;
+	text-align:center;
+}
+
+.btspy {
+	width:		36px;
+	height:		36px;
+    background-color:#e0e0e0;
+    border-radius: 8px;    
+	margin-top: 4px;
+	text-align:center;
+}
+
+.bgw {background-color:white;}
+.s1 {width:60px;}
+
+.template  {
+	display: none;
+/**
+	width:	270px;
+	height:	110px;
+**/	
+}
+
+
+@-webkit-keyframes blinkIn {
+	0%   { background-color: 	#00ff6f; }
+	49% { background-color: 	#00ff6f; }
+	50% { background-color: 	#76c0ff; }
+	99% { background-color: 	#76c0ff; }
+	100% { background-color: 	#00ff6f; }
+}
+@-moz-keyframes blinkIn {
+	0%   { background-color: 	#00ff6f; }
+	49% { background-color: 	#00ff6f; }
+	50% { background-color: 	#76c0ff; }
+	99% { background-color: 	#76c0ff; }
+	100% { background-color: 	#00ff6f; }
+}
+@keyframes blinkIn {
+	0%   { background-color: 	#00ff6f; }
+	49% { background-color: 	#00ff6f; }
+	50% { background-color: 	#76c0ff; }
+	99% { background-color: 	#76c0ff; }
+	100% { background-color: 	#00ff6f; }
+}
+
+.blink {
+  -webkit-animation: blinkIn 1s infinite;
+  -moz-animation:    blinkIn 1s infinite;
+  animation:         blinkIn 1s infinite;
+}
+
+
+</style>
+
+
+
+<script>
+
+var srvAddr = "";
+
+var spySrv = "";
+var spyExt = "";
+var spyPwd = "";
+
+const port = "9999";
+const startVol = 50;
+
+
+const CON_YES 	= 1;
+const CON_NO 	= 2;
+const CON_TRY 	= 3;
+
+const CGREEN 	= 	"#23ff23";
+const CGREY 	= 	"#c0c0c0";
+const CYELLOW 	= 	"#ffff00";
+const CRED 		= 	"#ff0000";
+const CBLUE 	= 	"#76c0ff";
+const CORANGE 	= 	"#ff9800";
+const CPURPLE	=	"#c845de";
+
+
+
+const REC_FCD	= "#0000ff";
+const REC_ON	= "#ff0000";
+const REC_OFF	= "#e0e0e0";
+
+const SPY_ON	= "#ff0000";
+const SPY_OFF	= "#e0e0e0";
+
+var conState = CON_NO;	
+
+const ZOMBIE_TIME	 = 5;
+
+var ts = 0;
+
+var websocket = null;	
+
+var currentSpyMain = "";
+var currentSpySub = "";
+
+
+webphone_api.onLoaded(function () {
+	
+	webphone_api.setparameter('serveraddress', spySrv);
+	webphone_api.setparameter('username', spyExt); 
+	webphone_api.setparameter('password', spyPwd); 
+
+	webphone_api.start();
+    webphone_api.mute(true,2);
+    webphone_api.setvolume(1,startVol);	
+	
+	$(".spyExt").html(spyExt + "@"  + spySrv);
+	webphone_api.start();
+
+	webphone_api.onCallStateChange(function (event, direction, peername, peerdisplayname, line) {
+ 		logit("STATUS UPDATE:" + event + " - line:" + line + "- dir:" + direction + " - peer:" + peername + " - peerdistp:" + peerdisplayname);
+ 		if (event === 'callRinging' && direction==2) {
+			webphone_api.accept(); 
+ 		}
+ 	});
+
+	webphone_api.onEvents( function (event)  {
+		logit("EVENT:"+ event);
+ 	});
+ 	
+});
+
+
+function logit(s) {
+	
+}
+
+$( document ).ready(function() {
+	
+	// test();
+	
+
+	$.fn.center = function () {
+	    this.css("position","absolute");
+	    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
+	                                                $(window).scrollTop()) + "px");
+	    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + 
+	                                                $(window).scrollLeft()) + "px");
+	    return this;
+	}
+	
+	
+	$("#vol").val(startVol);
+	
+	$("#vol").change(function() {
+		webphone_api.setvolume(1,$(this).val());	
+	});
+	
+	var tmp = $(location).attr('href');
+	var tar = tmp.split("/");
+	srvAddr = tar[2];
+	spySrv 	= srvAddr;
+	wsUri = "ws://" + srvAddr + ":" + port + "/callMonSrv5.php";
+	
+	//alert("wsUri:" + wsUri + " - spySrv:" + spySrv);
+	
+	$(".clock").click(function() {
+		var msg = JSON.stringify({msg:"clock clicked!"});
+		websocket.send(msg);
+	});
+
+	$("#btTest").click(function(){
+		showMsg("Hello World!");
+//		alert("test");
+//		websocket.send(JSON.stringify({msg:"DO_TEST"}));		
+	});
+
+	$("#btMsgClose").click(function(){
+		$("#divMsg").hide();
+	});		
+	
+	function setButtons() {
+		
+		$(".callreq").click(function() {
+			var dad =  $(this).parent().parent().parent().parent().parent().parent();
+			var numReq = dad.find(".dst").html();
+			var classes = dad.attr('class');
+			var classlist = classes.split(/\s+/);
+			var uid = "";
+			classlist.forEach(function(item) {
+			    if (item.substr(0,4)=="uid_") {
+			        uid = item.substr(4);
+			    }
+			});
+			if (uid=="")	return;
+			var opExt = dad.attr("opExt")
+			// alert("uid:" + uid + "\nreq:" + numReq + "\nopExt:" + opExt);
+			doOpForDett(uid, numReq, opExt);
+			
+		});
+		
+		$(".calltrans").click(function() {
+			var dad =  $(this).parent().parent().parent().parent().parent().parent();
+			var classes = dad.attr('class');
+			var classlist = classes.split(/\s+/);
+			var uid = "";
+			classlist.forEach(function(item) {
+			    if (item.substr(0,4)=="uid_") {
+			        uid = item.substr(4);
+			    }
+			});
+			if (uid=="")	return;
+
+			uid=uid.substring(5);
+			doOpToDettTrans(uid);
+			
+		});
+		
+		
+		$(".btend").click( function () {
+			
+			if (!confirm("Sicuro di voler terminare questa chiamata?"))
+				return;
+			
+			var dad =  $(this).parent().parent().parent().parent().parent(); // .attr('class');
+			
+			var classes = dad.attr('class');
+			var classlist = classes.split(/\s+/);
+			var uid = "";
+			classlist.forEach(function(item) {
+			    if (item.substr(0,4)=="uid_") {
+			        uid = item.substr(4);
+			    }
+			});
+			if (uid=="")	return;
+			$(this).css("background-color","red");
+			doEnd(uid);
+			
+		});
+
+		$(".btspy").click( function (){
+
+
+			var dad =  $(this).parent().parent().parent().parent().parent(); // .attr('class');
+			var classes = dad.attr('class');
+			var classlist = classes.split(/\s+/);
+			var uid = "";
+			classlist.forEach(function(item) {
+			    if (item.substr(0,4)=="uid_") {
+			        uid = item.substr(4);
+			    }
+			});
+			if (uid=="")	return;
+			if (currentSpyMain=="") {
+				$(this).css("background-color", SPY_ON);
+				currentSpyMain = uid;
+			} else if (currentSpyMain==uid) {
+				$(this).css("background-color", SPY_OFF);
+				currentSpyMain = "";
+			} else {
+				$(".uid_" + currentSpyMain).find(".btspy").css("background-color", SPY_OFF);
+				$(this).css("background-color", SPY_ON);
+				currentSpyMain = uid;
+			}
+			doSpy();
+		});
+
+	}	
+
+	setInterval(function () {checkConnect();}, 2000);
+	checkConnect();
+
+	function checkConnect() {
+		switch (conState) {
+			case "CON_YES" 	: 		
+				$(".stat").css("background-color","green");	
+				break;
+				
+			case "CON_TRY" 	: 		
+				$(".stat").css("background-color","yellow");	
+				break;
+			
+			case "CON_NO"	:
+				$(".stat").css("background-color","red");	
+				break;
+		}
+		if (conState == CON_NO)	
+			tryConnect();
+
+	}
+
+	function tryConnect() {
+		$(".stat").css("background-color","yellow");
+		conState = CON_TRY;
+		log ("Attempting Connection ..");
+		websocket = new WebSocket(wsUri ); 
+		
+		websocket.onopen = function(ev) { // connection is open 
+			amConnected = false;
+			conState = CON_YES;
+			$(".stat").css("background-color","green");	
+			log ("Connected ..");
+		}	
+
+		websocket.onmessage = function(ev) {
+			var msg = JSON.parse(ev.data); //PHP sends Json data
+			var type = msg.type; //message type
+			switch  (type) {
+				case "system" :
+					log("**SYSTEM message: " + msg.message);
+					break;
+				
+				case "pars"	:
+					if ("spyPwd" in msg)	spyPwd = msg.spyPwd;
+					if ("spyExt" in msg)	spyExt = msg.spyExt;
+					// regSpy();
+					break;
+				
+				case "heartbeat" :
+					doHeartbeat(msg);
+					break;
+				
+				case "calldata" : 
+					doCallData(msg);
+					break;
+					
+				case "msg" : 
+					showMsg(msg.msg);
+					break;
+			}
+			
+			// $(".cont").scrollTop = (".cont").scrollHeight;
+		
+		};
+		
+		websocket.onerror	= function(ev){ 
+			log("Error Occurred - " + ev.data); 
+			conState = CON_NO;
+		}; 
+		websocket.onclose 	= function(ev){ 
+			log("Socket Closed"); 
+			conState = CON_NO;
+		}; 
+	}
+
+	function doHeartbeat(msg) {
+		$(".clock").html(msg.time);
+		ts = parseInt(msg.ts);
+
+		$( ".call" ).each(function(index) {		
+			if ($(this).css("display")!="none") {
+				var ctStart = parseInt($(this).data("ctStart"));
+				if (ctStart!=0) {
+					var dur = ts - ctStart;
+					if (dur >= 0)
+						$(this).find(".dur").html(formatTime(dur));				
+				}
+			}
+		});
+		
+		$( ".call" ).each(function(index) {
+			var killtime = $(this).data("killtime");
+			if (killtime !=0 && killtime <= ts)
+				$(this).remove();	
+		});
+	}
+	
+	function doCallData(msg) {
+		
+		uidcl = "uid_" + msg.uid;
+		var hangup = 'hangup' in msg ? msg.hangup : 0;
+
+		
+		if ("org" in msg) {
+			var org = msg.org;
+			if (org.substr(0,4)=="Int:") {
+				$( ".call" ).each(function(index) {
+					if ($(this).find(".org").html() == org)
+						$(this).remove();
+				});
+				
+			}
+		}
+		
+		var found = ($("." + uidcl).length!=0);
+		if (!found && hangup==0) {		// not found, create new box!!!
+			var c = $(".template").clone();
+			c.removeClass("template");
+			c.addClass(uidcl);
+			c.appendTo(".cont");
+			c.data("killtime",0);
+			c.data("ctStart",0);
+			setButtons();
+		}
+		
+
+		if (hangup==1)	{
+			$("." + uidcl).data("killtime", ts + ZOMBIE_TIME);
+			$("." + uidcl).css("background-color", CGREY);	
+			$("." + uidcl).data("ctStart", 0);
+			return;
+		}
+
+		$( ".call" ).each(function(index) {
+			var killtime = $(this).data("killtime");
+			if (killtime !=0 && killtime <= ts)
+				$(this).remove();	
+		});
+		
+		
+		$("." + uidcl).find(".chiamato").show();
+		$("." + uidcl).find(".richiesto").hide();
+		$("." + uidcl).find(".trasferisci").hide();
+
+		$("." + uidcl).find(".uid").html(msg.uid);
+		
+		if ("org" in msg)			$("." + uidcl).find(".org").html(msg.org);
+		if ("orgDescr" in msg)		$("." + uidcl).find(".orgDescr").html(msg.orgDescr);
+		if ("dst" in msg)			$("." + uidcl).find(".dst").html(msg.dst);
+		if ("dstDescr" in msg)		$("." + uidcl).find(".dstDescr").html(msg.dstDescr);
+		if ("tmbeg" in msg)			$("." + uidcl).find(".tmbeg").html(msg.tmbeg);
+		if ("opExt" in msg)			$("." + uidcl).attr("opExt",msg.opExt);
+		if ("rid"	in msg)			$("." + uidcl).attr("rid",msg.rid);
+		if ("uiOP"	in msg)			$("." + uidcl).attr("uiOP",msg.uiOP);
+		
+		if ("bgcol" in msg)		{	
+			$("." + uidcl).css("background-color", msg.bgcol);
+			if (msg.bgcol== CRED && msg.dst!="" ) {
+				$("." + uidcl).find(".chiamato").hide();
+				$("." + uidcl).find(".trasferisci").hide();
+				$("." + uidcl).find(".richiesto").show();
+			}
+
+			if (msg.bgcol== CORANGE ) {
+				$("." + uidcl).find(".chiamato").hide();
+				$("." + uidcl).find(".trasferisci").show();
+			}
+
+			if (msg.bgcol== CRED ) {
+				$("." + uidcl).find(".chiamato").hide();
+				$("." + uidcl).find(".richiesto").show();
+			}
+
+			
+		}
+		
+	// 	if ("
+		
+		if ("ctStart" in msg)		$("." + uidcl).data("ctStart", msg.ctStart);
+		
+		if ("record" in msg) 		$("." + uidcl).find(".btrec").css("background-color", msg.record = 1 ? REC_ON : REC_OFF);
+		
+		if ("tmbeg" in msg)			$("." + uidcl).find(".tmbeg").html(msg.tmbeg);
+		
+		blink = ('blink' in msg ? msg.blink : 0);
+		if (blink==1)				$("." + uidcl).addClass("blink");
+		else						$("." + uidcl).removeClass("blink");
+		
+	}
+	
+	function doEnd (uid) {
+		webphone_api.setline(-2);
+		webphone_api.hangup();
+		var msg = {
+			msg	: "HANGUP"
+		,	uid	: uid
+		};
+		websocket.send(JSON.stringify(msg));		
+	}
+	
+	
+	function doOpForDett(uid, numReq, opExt) {
+		var msg = {
+			msg		: "OP_FOR_DETT"
+		,	uid		: uid
+		,	numReq 	: numReq
+		,	opExt	: opExt
+		};
+		websocket.send(JSON.stringify(msg));		
+		
+	}
+
+	function doOpToDettTrans(uid) {
+		var msg = {
+			msg		: "OP_TRANS_TO_DET"
+		,	uid		: uid
+		};
+		websocket.send(JSON.stringify(msg));		
+	}
+	
+	
+	function doSpy () {
+ 
+		webphone_api.setline(-2);
+		webphone_api.hangup();
+
+		// start spying on currentSpyMain
+		if (currentSpySub!="") {
+			doEnd(currentSpySub);
+			currentSpySub="";
+		}
+
+		var msg = {
+			msg		: "SPY"
+		,	ext		: spyExt
+		,	uid		: currentSpyMain
+		};
+		websocket.send(JSON.stringify(msg));		
+ 
+	}
+	
+	function log(s) {
+		console.log(s);
+		return;
+		$(".cont").html($(".cont").html() + s + "<br/>");
+	}
+
+	function rgb2hex(rgb) {
+	    if (/^#[0-9A-F]{6}$/i.test(rgb)) return rgb;
+
+	    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+	    function hex(x) {
+	        return ("0" + parseInt(x).toString(16)).slice(-2);
+	    }
+	    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+	}	
+	
+	function formatTime(secs) {
+		var mm = Math.floor(secs / 60);
+		var ss = secs % 60;
+		if (mm < 10) 	mm = "0" + mm;
+		if (ss < 10) 	ss = "0" + ss;
+		return(mm + ":" + ss);
+		
+	}
+	
+	
+	function test() {
+		for (var i=0; i<100; i++) {
+			var c = $(".template").clone();
+			c.removeClass("template");
+			c.addClass("uid_" + i);
+			c.appendTo(".cont");
+			c.data("ctStart",0);
+			["org","orgDescr","dst","dstDescr","tmbeg","dur"].forEach(function(el){
+				c.find("." + el).html(el);	
+			});
+			
+		}
+
+		setButtons();
+	}			
+	
+	function showMsg(msg) {
+		$("#divMsg").show();
+		$("#divMsg").center();
+		$("#divMsgText").html(msg);
+	}
+	
+});
+
+
+</script>
+
+
+</head>
+
+<body>
+<div class="top">
+	<div class="stat"></div>
+	<div class="title">Telispe 3 Call Monitor<button id="btTest">test</button></div>
+    <div class="clock"></div>
+    <div class="slider">
+      <input type="range" id="vol" min="1" max="100" value="50">
+    </div>	
+    <div class="spyExt"></div>	
+</div>
+
+
+<div class="cont">
+	<div class="call template">
+		<table style="width:100%; height:100%;" border=0>
+			<tr>
+				<td style="width:1px;" rowspan="6"></td>
+				<td class="uid" colspan="6"></td>
+			</tr>
+			<tr>
+
+				<td>Chiamante</td>
+				<td class="org bgw s1" colspan="3" style="width:64px;"></td>
+				
+				<td><div class="btend">FINE</div></td>
+			</tr>
+			<tr>
+				<td colspan="4" class="orgDescr bgw"></td>
+				<td rowspan="4">
+					<div class="btrec"><img src="./assets/img/record-icon.png" alt="rec" style="margin-top:5px; width:26px;height:26px;" ></div>
+					<div class="btspy"><img src="./assets/img/speaker-icon.png" alt="rec" style="margin-top:5px; width:26px;height:26px;" ></div>
+				</td>
+			</tr>
+
+
+			<tr>
+				<td >
+					<div class="chiamato">Chiamato</div>
+					<div class="richiesto">
+						<button class="callreq">Chiama</button>
+					</div>
+					<div class="trasferisci">
+						<button class="calltrans">Trasferisci</button>
+					</div>
+				</td>
+				<td class="dst bgw" colspan="3"></td>
+
+			<tr>
+				<td colspan="4" class="dstDescr bgw"></td>
+			</tr>
+
+
+			<tr>
+				<td>Inzio</td>
+				<td class="tmbeg bgw s1">tmbeg</td>
+
+				<td>Durata</td>
+				<td class="dur bgw s1">dur</td>
+			</tr>
+			
+
+		</table>
+		
+
+	</div>
+
+
+	<div id="divMsg">
+		<div id="divMsgText">
+		</div>
+		<button id="btMsgClose">Chiudi</button>
+	</div>
+	
+</div>	
+
+
+
+
+</body>
+</html>

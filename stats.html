@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Telispe 3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<script src="./assets/js/jquery-3.3.1.min.js"></script>
+
+
+<script>
+
+const wsURL = "./assets/php/ws/wsT3.php";                                                
+
+$( document ).ready(function() {
+    showStats();
+    setInterval(function(){ showStats() }, 2000);
+    
+    
+    function showStats() {
+		
+	    $.getJSON( wsURL, {action: "DISK_STATS"}).done(
+	        function (ret) { 
+	            if (ret.status!=0) 
+	                alert(ret.errMsg);
+	            else {
+	            	Object.keys(ret.vals).forEach(function(k) {
+						$("#" + k).html(ret.vals[k]);
+	            	});
+				}
+	        }
+	    );
+		
+    }
+    
+});
+
+</script>
+
+<body>
+<div id="totalU"></div>
+<div id="freeU"></div>
+<div id="usedU"></div>
+<div id="usedPCT"></div>
+<div id="upTime"></div>
+<div id="load"></div>
+<div id="memTot"></div>
+<div id="memUsed"></div>
+<div id="memFree"></div>
+<div id="memPCT"></div>
+
+</body>

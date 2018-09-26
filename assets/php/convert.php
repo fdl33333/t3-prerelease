@@ -1,0 +1,43 @@
+<?php
+require_once("config.php");
+require_once ("./classes/mySqliClass.php");
+
+/***
+aim is to convert old telispe to new db
+*/
+
+// DETENUTI
+
+/*******
+CREATE TABLE `det` (
+	`detId` INT(11) NOT NULL AUTO_INCREMENT,
+	`dtCreated` DATETIME NULL DEFAULT NULL,
+	`fname` VARCHAR(40) NULL DEFAULT NULL,
+	`lname` VARCHAR(40) NULL DEFAULT NULL,
+	`notes` TEXT NULL,
+	`matricola` VARCHAR(30) NULL DEFAULT NULL,
+	`ctypeId` INT(11) NULL DEFAULT NULL,
+	`lang` VARCHAR(2) NULL DEFAULT NULL,
+	`CARD_PRIV` VARCHAR(10) NULL DEFAULT NULL,
+	`CHIAMATE_AVVOCATI` TINYINT(4) NULL DEFAULT NULL,
+	`CREDIT_INI` DOUBLE NULL DEFAULT NULL,
+	`CREDIT_ACT` DOUBLE NULL DEFAULT NULL,
+	`SERIAL` VARCHAR(5) NULL DEFAULT NULL,
+	`UID_CARD` CHAR(20) NULL DEFAULT NULL,
+	`UID_COMPACT` CHAR(20) NULL DEFAULT NULL,
+	PRIMARY KEY (`detId`),
+	INDEX `Index 2` (`fname`),
+	INDEX `Index 3` (`lname`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+*/
+
+$my3 = new mySqliDb(TOLD_SRV, TOLD_USR, TOLD_PWD, TOLD_DB);
+$myOld = new mySqliDb(TOLD_SRV, TOLD_USR, TOLD_PWD, TOLD_DB);
+
+
+
+
+
+?>

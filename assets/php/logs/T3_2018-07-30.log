@@ -1,0 +1,25 @@
+2018-07-30 08:47:20	192.168.0.101	**No extension specified!
+2018-07-30 08:47:20	192.168.0.101	**ERROR:No extension specified!
+2018-07-30 08:47:36	192.168.0.101	**act invalid or missing. must be 'A' or 'D'
+2018-07-30 08:47:36	192.168.0.101	**ERROR:act invalid or missing. must be 'A' or 'D'
+2018-07-30 08:49:23	192.168.0.101	**ERROR:Nessuna Action specificata
+2018-07-30 08:59:16	192.168.0.101	**Delete failed
+2018-07-30 08:59:16	192.168.0.101	**ERROR:Delete failed
+2018-07-30 09:03:03	192.168.0.101	**Delete failed
+2018-07-30 09:03:03	192.168.0.101	**ERROR:Delete failed
+2018-07-30 09:09:55	192.168.0.101	**Utente 1001 NON trovato!
+2018-07-30 09:09:55	192.168.0.101	**ERROR:Utente 1001 NON trovato!
+2018-07-30 09:10:05	192.168.0.101	**Password Errata!
+2018-07-30 09:10:05	192.168.0.101	**ERROR:Password Errata!
+2018-07-30 09:10:10	192.168.0.101	**Password Errata!
+2018-07-30 09:10:10	192.168.0.101	**ERROR:Password Errata!
+2018-07-30 14:45:14	::1	**No realpin supplied!
+2018-07-30 14:45:14	::1	**ERROR:No realpin supplied!
+2018-07-30 14:45:27	::1	**ERROR:Tessera non presente in Db
+2018-07-30 14:45:38	::1	**ERROR:Tessera non presente in Db
+2018-07-30 14:49:27	::1	**dialedNum missing
+2018-07-30 14:49:27	::1	**ERROR:dialedNum missing
+2018-07-30 15:10:34	::1	**ERROR:Errore pin
+2018-07-30 15:11:15	::1	**dialedNum missing
+2018-07-30 15:11:15	::1	**ERROR:dialedNum missing
+2018-07-30 15:11:24	::1	**ERROR:Errore pin

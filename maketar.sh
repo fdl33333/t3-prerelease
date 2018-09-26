@@ -1,0 +1,1 @@
+tar --exclude='./recorder' --exclude='./assets/DHTMLX46' --exclude='./rec' -zcvf backup.tgz .

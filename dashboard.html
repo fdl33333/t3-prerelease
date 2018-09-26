@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Telispe 3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<link rel="stylesheet" type="text/css" href="./assets/skin3/dhtmlx.css"/>
+
+
+<script src="./assets/js/jquery-3.3.1.min.js"></script>
+
+<style>
+html, body {
+    margin:0px;
+    padding: 0px;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background-color:#f0f0f0;
+    font-family:sans-serif;
+    font-size:10pt;
+}
+
+.pctTD {
+	width:150px;
+}
+
+.pctOuter {
+	width:inherit;
+	height:18px;
+	background-color:#aaaaaa;
+}
+
+.pctInner {
+	height:100%;
+	width:0%;
+	background-color:#ff0000;
+}
+
+.ar { text-align: right;}
+
+.w80 {width:80px;}
+
+.w150 {width:150px;}
+
+.sep {height:12px; }
+
+#dvCalls {
+	width:700px;
+	height:200px;
+	background-color:red;
+	
+}
+
+.hd {
+	background-color: #000088;
+	color:#ffffff;
+	font-size:12pt;
+}
+
+table {
+	width:100%;
+}
+</style>
+
+<script src="./assets/DHTMLX46/codebase/dhtmlx.js"></script>
+<script src="./assets/js/fdlnew.js"></script>
+
+<script>
+
+var wsURL = "./assets/php/ws/wsT3.php";
+
+
+$( document ).ready(function() {
+
+	$(".disk").hide();
+
+	callsGridCreate();
+	
+	setInterval(getHealth, 3000);
+	setInterval(getCallStats, 2000);
+
+	getHealth();
+	getCallStats();
+
+	
+	function getHealth() {
+		$.getJSON(wsURL,{action:"DISK_STATS" }, function(ret){
+			
+			$(".upTime").html(ret.vals.upTime);
+			
+			var disks = ret.vals.dd;
+			for(var did in disks) {
+				$(".disk" + did).show();
+				$(".disk" + did).find(".name").html(disks[did].name);
+				$(".disk" + did).find(".tot").html(disks[did].tot);
+				$(".disk" + did).find(".used").html(disks[did].used);
+				$(".disk" + did).find(".avail").html(disks[did].avail);
+				$(".disk" + did).find(".pctInner").width(disks[did].pct + "%");
+			}
+
+			$(".ram").find(".name").html("Memoria RAM");
+			$(".ram").find(".tot").html(ret.vals.memTot);
+			$(".ram").find(".used").html(ret.vals.memUsed);
+			$(".ram").find(".avail").html(ret.vals.memFree);
+			$(".ram").find(".pctInner").width(ret.vals.memPCT + "%");
+			
+			$(".load").find(".name").html("Carico Processore");
+			$(".load").find(".pctInner").width(ret.vals.load + "%");
+
+		
+		});
+	}
+	
+	function getCallStats() {
+		$.getJSON(wsURL,{action:"CALL_STATS" }, function(ret){
+			if (ret.status==0) {
+				callsGrid.clearAll();
+				ret.calls.forEach(function (c) {
+					callsGrid.addRow(c.uuid, 
+					[	c.sessDTTM
+					,	c.ext
+					,	c.serial
+					,	c.name
+					,	c.dialedNum
+					,	c.descr
+					,	c.stat ]
+            		);
+            	});
+				
+			}
+		});
+	}
+	
+	
+	function callsGridCreate() {
+		callsGrid = new dhtmlXGridObject('dvCalls');
+		callsGrid.setImagePath("../assets/DHTMLX46/codebase/imgs/");   
+
+        //the path to images required by grid 
+        callsGrid.setImagePath("./codebase/imgs/");                 
+        callsGrid.setHeader("Data/ora,Int,Scheda,Detenuto,Numero,Descrizione,Stato/Durata");//the headers of columns  
+        callsGrid.setInitWidths("130,50,50,170,80,100,*");          //the widths of columns  
+        callsGrid.setColAlign("left,left,left,left,left,left,center");       //the alignment of columns   
+        callsGrid.setColTypes("ro,ro,ro,ro,ro,ro,ro");                //the types of columns  
+        callsGrid.init();      //finishes initialization and renders the grid on the page		
+		
+		
+	}	
+	
+	
+
+});
+
+
+
+
+
+</script>
+
+<body>
+
+<table id="tbMain" border="0">
+
+	<tr>
+		<td colspan=6 class="hd">Attivit&agrave;</td>
+	</tr>
+
+
+	<tr>
+		<td>Acceso da:</td>
+		<td class="upTime" colspan="5"></td>
+	</tr>
+
+	<tr class="sep"><td></td></tr>
+	
+	<tr>
+		<td colspan=6 class="hd">Utilizzo Risorse</td>
+	</tr>
+	
+	<tr class="diskHdr">
+		<td class="w150">Nome</td>
+		<td class="w150">Utilizzato</td>
+		<td class="ar w80">Totale</td>
+		<td class="ar w80">Usato</td>
+		<td class="ar w80">libero</td>
+	</tr>
+
+	<tr class="disk0">
+		<td class="name"></td>
+		<td class="pctTD">
+			<div class="pctOuter">
+				<div class="pctInner"></div>
+			</div>
+		</td>
+		<td class="ar tot"></td>
+		<td class="ar used"></td>
+		<td class="ar avail"></td>
+	</tr>
+
+	<tr class="disk disk1">
+		<td class="name"></td>
+		<td class="pctTD">
+			<div class="pctOuter">
+				<div class="pctInner"></div>
+			</div>
+		</td>
+		<td class="ar tot"></td>
+		<td class="ar used"></td>
+		<td class="ar avail"></td>
+	</tr>
+
+	<tr class="disk disk2">
+		<td class="name"></td>
+		<td class="pctTD">
+			<div class="pctOuter">
+				<div class="pctInner"></div>
+			</div>
+		</td>
+		<td class="ar tot"></td>
+		<td class="ar used"></td>
+		<td class="ar avail"></td>
+	</tr>
+
+	<tr class="disk disk4">
+		<td class="name"></td>
+		<td class="pctTD">
+			<div class="pctOuter">
+				<div class="pctInner"></div>
+			</div>
+		</td>
+		<td class="ar tot"></td>
+		<td class="ar used"></td>
+		<td class="ar avail"></td>
+	</tr>
+
+	<tr class="sep"><td></td></tr>
+	
+	<tr class="ram">
+		<td class="name"></td>
+		<td class="pctTD">
+			<div class="pctOuter">
+				<div class="pctInner"></div>
+			</div>
+		</td>
+		<td class="ar tot"></td>
+		<td class="ar used"></td>
+		<td class="ar avail"></td>
+	</tr>
+	
+	
+	<tr class="sep"><td></td></tr>
+	
+	<tr class="load">
+		<td class="name"></td>
+		<td class="pctTD">
+			<div class="pctOuter">
+				<div class="pctInner"></div>
+			</div>
+		</td>
+	</tr>
+	
+	<tr class="sep"><td></td></tr>
+
+	<tr>
+		<td colspan=6 class="hd">Ultime Chiamate</td>
+	</tr>
+	
+	<tr>
+		<td colspan=6>
+			<div id="dvCalls"><div>
+			
+		</td>
+	</tr>
+	
+
+</table>
+
+
+
+
+
+
+
+
+</body>

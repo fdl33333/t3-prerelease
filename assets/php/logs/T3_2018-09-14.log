@@ -1,0 +1,210 @@
+2018-09-14 09:10:29	::1	**ERROR:number 065656 not in whitelist for dett 1
+2018-09-14 09:10:54	::1	**ERROR:number 069292842 not in whitelist for dett 1
+2018-09-14 09:18:00	::1	**ERROR:Tessera non presente in Db
+2018-09-14 10:21:25	::1	**ERROR:Tessera non presente in Db
+2018-09-14 11:40:33	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:40:33	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:40:38	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:40:38	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:40:43	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:40:43	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:40:48	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:40:48	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:40:53	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:40:53	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:40:58	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:40:58	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:03	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '76919900)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:03	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '76919900)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:08	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '997)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:08	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '997)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:13	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '997)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:13	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '997)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:18	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '997)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:18	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '997)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:23	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '997)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:23	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '997)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:28	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '997)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:28	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '997)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:33	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '997)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 11:41:33	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '997)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:01:31	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '9)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:01:31	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '9)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:01:36	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '9)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:01:36	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '9)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:01:41	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '9)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:01:41	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '9)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:01:46	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '9)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:01:46	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '9)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:01:51	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '900052691)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:01:51	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '900052691)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:01:56	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '09)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:01:56	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '09)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:02:01	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '09)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:02:01	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '09)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:02:10	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '09)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:02:10	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '09)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:02:15	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '09)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:02:15	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '09)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:02:20	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '09)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:02:20	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '09)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:02:23	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '09)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:02:23	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '09)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:07:24	192.168.0.101	**Questo numero esiste gia' per un altro tipo di chiamata
+2018-09-14 12:07:24	192.168.0.101	**ERROR:Questo numero esiste gia' per un altro tipo di chiamata
+2018-09-14 12:09:37	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '052)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:09:37	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '052)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:09:47	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '052)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:09:47	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '052)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18
+2018-09-14 12:10:16	192.168.0.101	**You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '052)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18sql: SELECT 
+			r.uuid
+		,	r.sessDTTM
+		,	r.ext
+		,	c.serial
+		,	CONCAT(d.lname,', ', d.fname) `name`
+		,	r.dialedNum
+		,	CONCAT('[', r.callTip,  '] ',r.descr) descr
+		,	CASE 
+				WHEN r.cause IS NULL THEN '*Attiva'
+				ELSE CONCAT(' ',IF(r.`status` =0, r.totSecs, r.cause)) 
+			END stat
+		FROM callrec r
+		LEFT JOIN card c ON c.cardId = r.cardId
+		LEFT JOIN dett d ON d.dettId = r.dettId
+		LEFT JOIN wl   w ON w.wlId  = r.wlId
+		WHERE r.cause IS NOT NULL
+			OR  r.uuid IN ('zzzz'052)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10
+2018-09-14 12:10:16	192.168.0.101	**ERROR:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '052)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10' at line 18sql: SELECT 
+			r.uuid
+		,	r.sessDTTM
+		,	r.ext
+		,	c.serial
+		,	CONCAT(d.lname,', ', d.fname) `name`
+		,	r.dialedNum
+		,	CONCAT('[', r.callTip,  '] ',r.descr) descr
+		,	CASE 
+				WHEN r.cause IS NULL THEN '*Attiva'
+				ELSE CONCAT(' ',IF(r.`status` =0, r.totSecs, r.cause)) 
+			END stat
+		FROM callrec r
+		LEFT JOIN card c ON c.cardId = r.cardId
+		LEFT JOIN dett d ON d.dettId = r.dettId
+		LEFT JOIN wl   w ON w.wlId  = r.wlId
+		WHERE r.cause IS NOT NULL
+			OR  r.uuid IN ('zzzz'052)
+		ORDER BY LEFT(stat,1) DESC, sessDTTM DESC
+		LIMIT 10
+2018-09-14 16:15:29	::1	**ERROR:number 0691157710 not in whitelist for dett 1
+2018-09-14 16:40:09	::1	**ERROR:Tessera non presente in Db
+2018-09-14 16:52:43	::1	**dialedNum missing
+2018-09-14 16:52:43	::1	**ERROR:dialedNum missing

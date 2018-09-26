@@ -1,0 +1,10 @@
+2018-08-01 16:18:07	127.0.0.1	**ERROR:ext NOT found
+2018-08-01 16:18:21	127.0.0.1	**ERROR:ext NOT found
+2018-08-01 16:20:30	192.168.9.113	**Password Errata!
+2018-08-01 16:20:30	192.168.9.113	**ERROR:Password Errata!
+2018-08-01 16:20:58	127.0.0.1	**ERROR:ext NOT found
+2018-08-01 16:21:29	127.0.0.1	**ERROR:ext NOT found
+2018-08-01 16:21:44	127.0.0.1	**ERROR:ext NOT found
+2018-08-01 16:22:57	127.0.0.1	**dialedNum missing
+2018-08-01 16:22:57	127.0.0.1	**ERROR:dialedNum missing
+2018-08-01 17:08:12	127.0.0.1	**ERROR:number 347860541 not in whitelist for dett 1

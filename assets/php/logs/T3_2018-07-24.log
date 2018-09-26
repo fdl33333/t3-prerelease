@@ -1,0 +1,19 @@
+2018-07-24 07:43:46	::1	**ERROR:Tessera non presente in Db
+2018-07-24 09:41:36	::1	**ERROR:ext disabled
+2018-07-24 10:25:28	::1	**ERROR:Tessera non Abilitata
+2018-07-24 10:25:47	::1	**dialedNum missing
+2018-07-24 10:25:47	::1	**ERROR:dialedNum missing
+2018-07-24 10:45:17	192.168.0.101	**Manca Login
+2018-07-24 10:45:17	192.168.0.101	**ERROR:Manca Login
+2018-07-24 14:12:54	192.168.0.101	**Password Errata!
+2018-07-24 14:12:54	192.168.0.101	**ERROR:Password Errata!
+2018-07-24 15:19:00	192.168.0.101	**dettId missing
+2018-07-24 15:19:32	192.168.0.101	**ERROR:dettId missing
+2018-07-24 15:25:15	192.168.0.101	**saving window pos:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+2018-07-24 15:25:41	192.168.0.101	**ERROR:saving window pos:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+2018-07-24 15:26:16	192.168.0.101	**saving window pos:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+2018-07-24 15:26:18	192.168.0.101	**ERROR:saving window pos:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+2018-07-24 16:47:16	::1	**ERROR:Tessera non presente in Db
+2018-07-24 17:06:47	::1	**ERROR:Tessera non presente in Db
+2018-07-24 17:09:36	::1	**ERROR:Tessera non presente in Db
+2018-07-24 17:09:47	::1	**ERROR:number 00 not in whitelist for dett 1

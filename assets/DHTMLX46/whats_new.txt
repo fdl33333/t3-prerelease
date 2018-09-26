@@ -1,0 +1,63 @@
+  dhtmlxVault what's new
+========================================================================
+
+
+  Version 2.4.1 [released on November 20, 2015]
+------------------------------------------------------------------------
+
+- XSS vulnerability fixed in swf
+- delayed UI refresh on upload is fixed
+- setSizes fixed when vault attached to a cell in web skin
+- integration with sidebar demo added
+- demos cosmetic fix
+
+
+  Version 2.4 [released on January 28, 2015]
+------------------------------------------------------------------------
+
+- ability to download uploaded files
+- details on the usage of max file size added
+- conf-request changed to GET by default and depends on dhx4.ajax.method
+- readableSize method added
+- params in url fixed for SL mode
+
+
+  Version 2.3 [released on July 29, 2014]
+------------------------------------------------------------------------
+
+- the ability to drop custom object (see addDraggableNode and removeDraggableNode) (PRO version)
+- onDrop event added (PRO version)
+- the ability to load the list of previously uploaded files from the server (see load)
+- the ability to add a custom file record into the vault's files area (see addFileRecord)
+- lastModifiedDate attribute for events added
+
+
+  Version 2.2 [released on June 4, 2014]
+------------------------------------------------------------------------
+- dhtmlx 4.0 compatibility
+- updated skins
+
+
+  Version 2.1 [released on April 10, 2014]
+------------------------------------------------------------------------
+
+- drag-and-drop functionality is fixed for IE11
+- strings.dnd added to customize the text that notifies the end user about drag-and-drop
+- html5 mode is fixed for the case when file selection is cancelled
+- flash mode is fixed for IE7 and for IE10/IE11 compatibility mode
+- font size is fixed for some IE versions
+- paramName is added that provides the ability to change the name for input
+- the ability to disable multiple file selection for Flash and html5 modes
+
+
+  Version 2.0 [released on January 8, 2014]
+------------------------------------------------------------------------
+- drag-and-drop support (requires PRO version)
+- major performance improvements
+- automatic uploading/removing
+- new skins (web, terrace) and improved skyblue
+- new icons for files (with a possibility to use any custom icons)
+- new event system (attachEvent/detachEvent)
+- the ability to change progress from % to eta
+- integration with other DHTMLX components (like windows, layout)
+

@@ -1,0 +1,20 @@
+2018-08-09 08:56:07	192.168.0.101	**Missing const
+2018-08-09 08:56:07	192.168.0.101	**ERROR:Missing const
+2018-08-09 08:56:15	192.168.0.101	**Const 'PIPPO' not found
+2018-08-09 08:56:15	192.168.0.101	**ERROR:Const 'PIPPO' not found
+2018-08-09 09:37:29	192.168.0.101	**cardId Missing
+2018-08-09 09:37:29	192.168.0.101	**ERROR:cardId Missing
+2018-08-09 09:37:44	192.168.0.101	**cardId Missing
+2018-08-09 09:37:44	192.168.0.101	**ERROR:cardId Missing
+2018-08-09 09:37:55	192.168.0.101	**'card' Missing
+2018-08-09 09:37:55	192.168.0.101	**ERROR:'card' Missing
+2018-08-09 09:41:01	192.168.0.101	**'card' Missing
+2018-08-09 09:41:01	192.168.0.101	**ERROR:'card' Missing
+2018-08-09 09:43:49	192.168.0.101	**Impossibile eliminare Tessera
+Usata da Facco de Lagarda, Francesco
+2018-08-09 09:43:49	192.168.0.101	**ERROR:Impossibile eliminare Tessera
+Usata da Facco de Lagarda, Francesco
+2018-08-09 09:51:26	192.168.0.101	**Impossibile eliminare Tessera
+Usata da Facco de Lagarda, Francesco
+2018-08-09 09:51:26	192.168.0.101	**ERROR:Impossibile eliminare Tessera
+Usata da Facco de Lagarda, Francesco

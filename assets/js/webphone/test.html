@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>webphone test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+<style>
+
+html, body {
+    margin:0px;
+    padding: 0px;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background-color:#f0f0f0;
+}
+
+#divLog {
+	width:100%;
+	height:100%;
+	background-color:#e0e0e0;
+	font-family:monospace;
+	font-size:10pt;
+	overflow:auto;
+	color: #000080;
+}
+
+#btHangup {
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:5;
+}
+</style>
+
+<script src="../jquery-3.3.1.min.js"></script>
+<script src="./webphone_api.js"></script>
+
+<script>
+
+var spyExt = 1007;
+var spySrv = "192.168.0.234";
+var spyPwd = "passw0rd";
+var lineBusy = 0;
+
+window.onbeforeunload = function () {
+    webphone_api.stop();
+};
+
+
+$( document ).ready(function() {
+    $("#btHangup").click(function() {
+		webphone_api.setline(-2);
+		webphone_api.hangup();
+    });
+});
+
+
+webphone_api.onLoaded(function () {
+	
+	//set parameters (alternatively these can be also preset in your html)
+	webphone_api.setparameter('serveraddress', spySrv); // Replace the word in uppercase with your SIP server IP or domain name (add also the :port number if not using the standard UDP 5060)
+	webphone_api.setparameter('username', spyExt); // Replace the word in uppercase with a valid SIP extension username
+	webphone_api.setparameter('password', spyPwd); // Replace the word in uppercase with the password for the above user
+	//see the ?Parameters? section in the documentation for more options
+
+	//start the webphone (optional but recommended)
+	webphone_api.start();
+
+	webphone_api.onCallStateChange(function (event, direction, peername, peerdisplayname, line) {
+ 		logit("STATUS UPDATE:" + event + " - line:" + line + "- dir:" + direction + " - peer:" + peername + " - peerdistp:" + peerdisplayname);
+ 		if (event === 'callRinging' && direction==2) {
+			webphone_api.accept(); 
+ 		}
+ 	});
+
+	webphone_api.onEvents( function (event)  {
+		// For example the following status means that there is an incoming call ringing from 2222 on the first line:
+		// STATUS,1,Ringing,2222,1111,2,Katie,[callid]
+		// parameters are separated by comma(,)
+		// the sixth parameter (2) means it is for incoming call. For outgoing call this parameter is 1.
+		// example for detecting incoming and outgoing calls:
+		
+		// STATUS,1,Ringing,1000,1007,2,1000 -Extension 1000,[8f98b99b-0c5e-1237-7db5-00fd45fc4abc],,1,2,1,0,0,0,0
+		
+		logit("EVENT:"+ event);
+ 	});
+ 	
+});
+
+function logit(s) {
+	$("#divLog").html($("#divLog").html() + "<br/>" + s);
+	$('#divLog').scrollTop($('#divLog')[0].scrollHeight);
+}
+
+</script>
+</head>
+<body>
+<input type="button" id="btHangup" value="Hangup">
+<div id="divLog"></div>
+</body>
+</html>

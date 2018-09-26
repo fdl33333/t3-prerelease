@@ -1,0 +1,21 @@
+2018-07-28 17:07:35	::1	**ERROR:ext disabled
+2018-07-28 17:07:52	192.168.0.101	**Password Errata!
+2018-07-28 17:07:52	192.168.0.101	**ERROR:Password Errata!
+2018-07-28 17:08:29	::1	**ERROR:number 065 not in whitelist for dett 1
+2018-07-28 17:08:42	::1	**ERROR:number 0692928224 not in whitelist for dett 1
+2018-07-28 17:08:50	::1	**ERROR:Tessera non presente in Db
+2018-07-28 17:17:02	::1	**ERROR:Tessera non presente in Db
+2018-07-28 17:17:16	::1	**ERROR:number 069292 not in whitelist for dett 1
+2018-07-28 17:17:23	::1	**ERROR:Tessera non presente in Db
+2018-07-28 17:20:09	192.168.0.101	**uuid missing
+2018-07-28 17:20:09	192.168.0.101	**ERROR:uuid missing
+2018-07-28 17:20:24	192.168.0.101	**ext missing
+2018-07-28 17:20:24	192.168.0.101	**ERROR:ext missing
+2018-07-28 17:20:31	192.168.0.101	**cardId missing
+2018-07-28 17:20:31	192.168.0.101	**ERROR:cardId missing
+2018-07-28 17:20:41	192.168.0.101	**dettId missing
+2018-07-28 17:20:41	192.168.0.101	**ERROR:dettId missing
+2018-07-28 17:20:48	192.168.0.101	**dialedNum missing
+2018-07-28 17:20:48	192.168.0.101	**ERROR:dialedNum missing
+2018-07-28 17:26:23	192.168.0.101	**ERROR:Looking for number:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND tip NOT IN ('O', 'P')' at line 1
+2018-07-28 17:26:39	192.168.0.101	**ERROR:number 0692928424 not in whitelist for dett 1

@@ -1,0 +1,12 @@
+2018-07-25 08:30:57	192.168.0.1	**Password Errata!
+2018-07-25 08:30:57	192.168.0.1	**ERROR:Password Errata!
+2018-07-25 08:31:06	192.168.0.1	**Password Errata!
+2018-07-25 08:31:06	192.168.0.1	**ERROR:Password Errata!
+2018-07-25 09:05:23	192.168.0.101	**Unknown column 'm.menuCode' in 'field list'
+2018-07-25 09:05:23	192.168.0.101	**ERROR:Unknown column 'm.menuCode' in 'field list'
+2018-07-25 09:13:21	192.168.0.101	**Utente fdl NON trovato!
+2018-07-25 09:13:21	192.168.0.101	**ERROR:Utente fdl NON trovato!
+2018-07-25 09:37:19	192.168.0.101	**Utente francesca.gaspari NON trovato!
+2018-07-25 09:37:19	192.168.0.101	**ERROR:Utente francesca.gaspari NON trovato!
+2018-07-25 09:37:29	192.168.0.101	**Utente francesca.gasperi NON trovato!
+2018-07-25 09:37:29	192.168.0.101	**ERROR:Utente francesca.gasperi NON trovato!

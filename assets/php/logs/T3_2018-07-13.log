@@ -1,0 +1,11 @@
+2018-07-13 07:14:50	::1	**ERROR:number 4000 not in whitelist for dett 1
+2018-07-13 07:16:05	::1	**ERROR:number 400 not in whitelist for dett 1
+2018-07-13 15:42:49	192.168.0.101	**Password Errata!
+2018-07-13 15:42:49	192.168.0.101	**ERROR:Password Errata!
+2018-07-13 15:42:54	192.168.0.101	**Password Errata!
+2018-07-13 15:42:54	192.168.0.101	**ERROR:Password Errata!
+2018-07-13 15:44:51	192.168.0.101	**Password Errata!
+2018-07-13 15:44:51	192.168.0.101	**ERROR:Password Errata!
+2018-07-13 15:44:54	192.168.0.101	**Password Errata!
+2018-07-13 15:44:54	192.168.0.101	**ERROR:Password Errata!
+2018-07-13 16:01:32	::1	**ERROR:Reached limit to calls to this number

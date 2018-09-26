@@ -1,0 +1,15 @@
+2018-08-02 08:24:10	192.168.9.177	**Manca Login
+2018-08-02 08:24:10	192.168.9.177	**ERROR:Manca Login
+2018-08-02 08:49:09	127.0.0.1	**No realpin supplied!
+2018-08-02 08:49:09	127.0.0.1	**ERROR:No realpin supplied!
+2018-08-02 08:49:39	127.0.0.1	**ERROR:number 069293 not in whitelist for dett 1
+2018-08-02 08:53:24	127.0.0.1	**ERROR:number 00 not in whitelist for dett 1
+2018-08-02 09:55:24	127.0.0.1	**ERROR:credit less than minCredit
+2018-08-02 10:01:47	127.0.0.1	**ERROR:Errore pin
+2018-08-02 10:04:40	127.0.0.1	**ERROR:number 3932188101 not in whitelist for dett 15
+2018-08-02 10:08:51	127.0.0.1	**dialedNum missing
+2018-08-02 10:08:51	127.0.0.1	**ERROR:dialedNum missing
+2018-08-02 10:18:16	127.0.0.1	**ERROR:Reached limit to calls to this number
+2018-08-02 10:23:40	127.0.0.1	**ERROR:Reached limit to calls to this number
+2018-08-02 10:27:56	127.0.0.1	**ERROR:number 0690289704 not in whitelist for dett 16
+2018-08-02 10:29:13	127.0.0.1	**ERROR:number 0690289704 not in whitelist for dett 16
